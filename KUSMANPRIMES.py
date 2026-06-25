@@ -1,5 +1,7 @@
 import math
 import os
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 class KUSMANPrimeSystem:
     def __init__(self):
@@ -25,7 +27,7 @@ class KUSMANPrimeSystem:
         self.primes = [i for i in range(2, N + 1) if is_prime[i]]
     
     def generate_prime_path(self, n):
-        """Compute factorization path using ζ-operator"""
+        """Compute factorization path using -operator"""
         path = []
         current = n
         
@@ -60,7 +62,7 @@ class KUSMANPrimeSystem:
             f.write("==========================\n")
             f.write("- Ancient Oaks: Prime numbers (indivisible)\n")
             f.write("- Saplings: Composite numbers\n")
-            f.write("- ζ-operator: Smallest prime factor extraction\n")
+            f.write("- -operator: Smallest prime factor extraction\n")
             f.write(f"- Certified primes up to {N}: {len(self.primes)} found\n")
             f.write("- KUSMAN framework guarantee: 100% accuracy\n")
 

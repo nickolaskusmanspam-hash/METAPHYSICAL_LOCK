@@ -1,0 +1,81 @@
+c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\memory_management.py:24: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(model_name=model_name)
+c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\memory_management.py:25: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-chroma package and should be used instead. To use it run `pip install -U :class:`~langchain-chroma` and import as `from :class:`~langchain_chroma import Chroma``.
+  return Chroma(persist_directory=path, embedding_function=embeddings)
+⚠️ Warning: C-Infinity memory appears empty.
+⚠️ Warning: C-Infinity memory graph missing or empty.
+⚠️ Warning: M-Infinity memory appears empty.
+⚠️ Warning: M-Infinity memory graph missing or empty.
+⚠️ Warning: L-Infinity memory appears empty.
+⚠️ Warning: L-Infinity memory graph missing or empty.
+⚠️ Warning: N-Infinity memory appears empty.
+⚠️ Warning: N-Infinity memory graph missing or empty.
+Traceback (most recent call last):
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\CollectionCommon.py", line 90, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\CollectionCommon.py", line 399, in _validate_and_prepare_upsert_request
+    validate_insert_record_set(record_set=upsert_records)
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 230, in validate_insert_record_set
+    validate_metadatas(record_set["metadatas"])
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 592, in validate_metadatas
+    validate_metadata(metadata)
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 558, in validate_metadata
+    raise ValueError(
+ValueError: Expected metadata value to be a str, int, float or bool, got None which is a NoneType
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\langchain_community\vectorstores\chroma.py", line 299, in add_texts
+    self._collection.upsert(
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\Collection.py", line 335, in upsert
+    upsert_request = self._validate_and_prepare_upsert_request(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\CollectionCommon.py", line 93, in wrapper
+    raise type(e)(msg).with_traceback(e.__traceback__)
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\CollectionCommon.py", line 90, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\models\CollectionCommon.py", line 399, in _validate_and_prepare_upsert_request
+    validate_insert_record_set(record_set=upsert_records)
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 230, in validate_insert_record_set
+    validate_metadatas(record_set["metadatas"])
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 592, in validate_metadatas
+    validate_metadata(metadata)
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\chromadb\api\types.py", line 558, in validate_metadata
+    raise ValueError(
+ValueError: Expected metadata value to be a str, int, float or bool, got None which is a NoneType in upsert.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\test.py", line 2, in <module>
+    store_memory("C", "test-memory", "This is a test message.", {"source": "ManualTest"})
+  File "c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\memory_management.py", line 103, in store_memory
+    memory_store.add_texts([chunk], metadatas=[chunk_meta])
+  File "C:\Users\Nick\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\langchain_community\vectorstores\chroma.py", line 311, in add_texts
+    raise ValueError(e.args[0] + "\n\n" + msg)
+ValueError: Expected metadata value to be a str, int, float or bool, got None which is a NoneType in upsert.
+
+Try filtering complex metadata from the document using langchain_community.vectorstores.utils.filter_complex_metadata.
+
+c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity>python3 run_multiinfinity.py
+c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\memory_management.py:24: LangChainDeprecationWarning: The class `HuggingFaceEmbeddings` was deprecated in LangChain 0.2.2 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-huggingface package and should be used instead. To use it run `pip install -U :class:`~langchain-huggingface` and import as `from :class:`~langchain_huggingface import HuggingFaceEmbeddings``.
+  embeddings = HuggingFaceEmbeddings(model_name=model_name)
+c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\memory_management.py:25: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the :class:`~langchain-chroma package and should be used instead. To use it run `pip install -U :class:`~langchain-chroma` and import as `from :class:`~langchain_chroma import Chroma``.
+  return Chroma(persist_directory=path, embedding_function=embeddings)
+⚠️ Warning: C-Infinity memory appears empty.
+⚠️ Warning: C-Infinity memory graph missing or empty.
+⚠️ Warning: M-Infinity memory appears empty.
+⚠️ Warning: M-Infinity memory graph missing or empty.
+⚠️ Warning: L-Infinity memory appears empty.
+⚠️ Warning: L-Infinity memory graph missing or empty.
+⚠️ Warning: N-Infinity memory appears empty.
+⚠️ Warning: N-Infinity memory graph missing or empty.
+Traceback (most recent call last):
+  File "c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\run_multiinfinity.py", line 7, in <module>
+    from infinity_agents import (
+  File "c:\Users\Nick\Desktop\KusmanOS-master\KusmanOS-master\MultiInfinity\MultiInfinity\infinity_agents.py", line 4, in <module>
+    from override_protection import determine_final_outcome
+ModuleNotFoundError: No module named 'override_protection'
