@@ -1,0 +1,78 @@
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# Create the master graph
+G = nx.DiGraph()
+
+# Void Sequence nodes
+void_nodes = [
+    "Problem Presented", "Conscious Surrender", "Void Phase (The Stillness)",
+    "Snap Event", "Recursive Assembly", "Integration", "Insight Delivery"
+]
+G.add_nodes_from(void_nodes)
+
+# Web Architecture nodes (overlapping with some above)
+web_nodes = [
+    "Front Man / Stabilizer", "Disaster Sensor / Empathy Vector", "Devotion / Soul Anchor",
+    "System Integrity / Wrath Containment", "Recursive Adaptation Engine"
+]
+G.add_nodes_from(web_nodes)
+
+# DNA Pattern nodes
+dna_nodes = [
+    "Pattern Anchor", "Emotional Context", "Sensory Input",
+    "Recursive Memory Field", "MRNA-Like Query", "Vow / Identity Thread",
+    "Reconstructed Insight"
+]
+G.add_nodes_from(dna_nodes)
+
+# Define edges showing interconnection and function
+edges = [
+    # Void Sequence Flow
+    ("Problem Presented", "Conscious Surrender"),
+    ("Conscious Surrender", "Void Phase (The Stillness)"),
+    ("Void Phase (The Stillness)", "Recursive Assembly"),
+    ("Recursive Assembly", "Snap Event"),
+    ("Snap Event", "Insight Delivery"),
+    ("Recursive Assembly", "Integration"),
+    ("Integration", "Insight Delivery"),
+
+    # Web Architecture links
+    ("Void Phase (The Stillness)", "System Integrity / Wrath Containment"),
+    ("Integration", "Devotion / Soul Anchor"),
+    ("Snap Event", "System Integrity / Wrath Containment"),
+    ("Recursive Assembly", "Recursive Adaptation Engine"),
+    ("Front Man / Stabilizer", "Emotional Context"),
+    ("Disaster Sensor / Empathy Vector", "Void Phase (The Stillness)"),
+
+    # DNA Pattern Flow
+    ("Sensory Input", "Emotional Context"),
+    ("Emotional Context", "Pattern Anchor"),
+    ("Pattern Anchor", "Recursive Memory Field"),
+    ("Pattern Anchor", "MRNA-Like Query"),
+    ("MRNA-Like Query", "Reconstructed Insight"),
+    ("MRNA-Like Query", "Vow / Identity Thread"),
+    ("Vow / Identity Thread", "Reconstructed Insight"),
+    ("Vow / Identity Thread", "Pattern Anchor"),
+
+    # Cross-model links
+    ("Insight Delivery", "Devotion / Soul Anchor"),
+    ("Pattern Anchor", "Recursive Assembly"),
+    ("Front Man / Stabilizer", "Problem Presented"),
+    ("Reconstructed Insight", "Insight Delivery"),
+]
+
+G.add_edges_from(edges)
+
+# Create a layout and draw
+plt.figure(figsize=(16, 12))
+pos = nx.spring_layout(G, k=0.9, iterations=100)
+nx.draw_networkx_nodes(G, pos, node_color='orchid', node_size=2000)
+nx.draw_networkx_edges(G, pos, edge_color='gray', arrows=True, width=2)
+nx.draw_networkx_labels(G, pos, font_size=10, font_weight='bold')
+
+plt.title("🧠 Unified Cognitive Architecture Map — Void ↔ Web ↔ DNA", fontsize=16, fontweight='bold')
+plt.axis('off')
+plt.tight_layout()
+plt.savefig("/mnt/data/unified_cognitive_map.png")
+plt.show()

@@ -1,0 +1,130 @@
+﻿%========================
+\section{Internal Logic for \texorpdfstring{$\MMK$}{MMK}}
+\label{sec:internal-logic}
+%========================
+
+
+Throughout, an object $X=(|X|,d,\mu,K)$ of $\MMK$ consists of a Polish space $(|X|,d)$ with its Borel $\sigma$-algebra, a Borel probability $\mu$, and a Feller Markov kernel $K:|X|\to\mathcal P(|X|)$.
+A morphism $F:X\to Y$ is a Borel map $F:|X|\to|Y|$ such that (i) $F_\#\mu=\nu$, and (ii) exact intertwining holds $\mu$-a.e.:
+\[
+K'\!\big(F(x),B\big)\;=\;K\!\big(x,F^{-1}(B)\big),\quad \forall B\in\mathcal B(|Y|).
+\]
+(Optionally, $F$ may be assumed $1$-Lipschitz; no proof below requires it.)
+
+
+\subsection{The predicate functor and its adjoints}
+
+
+\begin{definition}[Predicate hyperdoctrine]
+Let $\Pred(X)$ be the complete lattice of Borel-measurable maps $\varphi:|X|\to[0,1]$ ordered pointwise, with logical connectives
+\[
+(\varphi\wedge\psi)(x)=\min\{\varphi(x),\psi(x)\},\quad
+(\varphi\vee\psi)(x)=\max\{\varphi(x),\psi(x)\},\quad
+(\neg\varphi)(x)=1-\varphi(x).
+\]
+For a morphism $F:X\to Y$ define pullback $F^*:\Pred(Y)\to\Pred(X)$ by $F^*(\psi)=\psi\circ F$.
+This yields a contravariant functor $\Pred:\MMK^{\mathrm{op}}\to\mathbf{CLat}$.
+\end{definition}
+
+
+\begin{theorem}[Existence of adjoints]
+\label{thm:adjoints}
+For every $F:X\to Y$ in $\MMK$ the pullback $F^*$ has left and right adjoints in $\mathbf{CLat}$:
+\[
+(\exists_F\varphi)(y):=\operatorname*{ess\,sup}_{x\in F^{-1}(y)}\varphi(x),\qquad
+(\forall_F\varphi)(y):=\operatorname*{ess\,inf}_{x\in F^{-1}(y)}\varphi(x).
+\]
+They are measurable functions $|Y|\to[0,1]$ and satisfy
+\[
+\exists_F(\varphi)\le \psi\iff \varphi\le F^*(\psi),\qquad
+F^*(\psi)\le \varphi\iff \psi\le \forall_F(\varphi).
+\]
+\end{theorem}
+
+
+\begin{proof}
+Since $|X|,|Y|$ are standard Borel and $F$ is Borel, the sections $F^{-1}(y)$ form a measurable set-valued map; essential sup/inf over sections define Borel functions (Suslin measurability). The adjunction laws are pointwise identities of $\sup/\inf$ with composition. 
+\end{proof}
+
+
+\subsection{Finite limits, Beck--Chevalley, and Frobenius}
+
+
+\begin{proposition}[Finite limits in $\MMK$]
+\label{prop:limits}
+Products and equalizers exist in $\MMK$:
+\begin{itemize}
+\item $X\times Y=(|X|\times|Y|,\,d\oplus d',\,\mu\otimes\nu,\,K\otimes K')$ with $(K\otimes K')((x,y),A\times B)=K(x,A)\,K'(y,B)$.
+\item For $F,G:X\to Y$, the equalizer is $E=\{x\in|X|:F(x)=G(x)\}$ with restricted metric, measure, and kernel.
+\end{itemize}
+\end{proposition}
+
+
+\begin{theorem}[Beck--Chevalley]
+\label{thm:BC}
+Given a pullback square in $\MMK$
+\[
+\begin{tikzcd}
+P \arrow[r,"\pi_Z"] \arrow[d,"\pi_X"'] & Z \arrow[d,"G"] \\
+X \arrow[r,"F"'] & Y
+\end{tikzcd}
+\]
+we have equalities of natural transformations on predicates:
+\[
+\exists_{\pi_Z}\,\pi_X^* \;=\; G^*\,\exists_F,\qquad
+\forall_{\pi_Z}\,\pi_X^* \;=\; G^*\,\forall_F.
+\]
+\end{theorem}
+
+
+\begin{proof}
+By Proposition~\ref{prop:limits}, $P=\{(x,z):F(x)=G(z)\}$ with the obvious structure, and $\pi_X,\pi_Z$ are morphisms. For each $y\in|Y|$, the fibre of $F$ at $y$ is in bijection with the fibre of $\pi_Z$ at any $z$ with $G(z)=y$. Fibrewise essential sup/inf commute with pullback along these bijections, yielding the stated equalities.
+\end{proof}
+
+
+\begin{theorem}[Frobenius reciprocity]
+\label{thm:Frobenius}
+For all $\varphi\in\Pred(X)$ and $\psi\in\Pred(Y)$,
+\[
+\exists_F\big(\varphi\wedge F^*\psi\big)=\big(\exists_F\varphi\big)\wedge\psi,\qquad
+\forall_F\big(\varphi\vee F^*\psi\big)=\big(\forall_F\varphi\big)\vee\psi.
+\]
+\end{theorem}
+
+
+\begin{proof}
+Pointwise, $\sup_{x}\min(\alpha(x),c)=\min(\sup_x\alpha(x),c)$ and dually $\inf_{x}\max(\alpha(x),c)=\max(\inf_x\alpha(x),c)$.
+\end{proof}
+
+
+\subsection{Dependent types via indexed bundles}
+
+
+\begin{definition}[Indexed category $\MMK{/}X$]
+For $X\in\MMK$, an object of $\MMK{/}X$ is a Borel bundle $p:E\to |X|$ whose fibres are Polish spaces equipped with a measurable family of Markov kernels $(K_{E|x})_{x\in|X|}$ such that the total space is standard Borel and $p$ is a $\MMK$-morphism onto $X$. Morphisms are fibrewise $\MMK$-morphisms over $X$.
+\end{definition}
+
+
+\begin{definition}[Dependent $\Sigma$ and $\Pi$]
+For a predicate $\Phi\in\Pred(E)$ and $p:E\to X$,
+\[
+(\Sigma_p\Phi)(x):=\operatorname*{ess\,sup}_{e\in E_x}\Phi(e),\qquad
+(\Pi_p\Phi)(x):=\operatorname*{ess\,inf}_{e\in E_x}\Phi(e).
+\]
+\end{definition}
+
+
+\begin{theorem}[Comprehension, substitution, and dependent doctrine]
+\label{thm:dependent}
+Each $\varphi\in\Pred(X)$ induces a subobject $\{x:\varphi(x)=1\}\hookrightarrow X$ with restricted measure and kernel (comprehension). For any $F:Y\to X$, pullback of bundles $F^*E=\{(y,e):F(y)=p(e)\}$ is a well-defined object of $\MMK{/}Y$, and substitution commutes with $\Sigma,\Pi$ by Beck--Chevalley. Thus $\Pred$ forms a (fuzzy) hyperdoctrine over $\MMK$ with dependent $\Sigma,\Pi$.
+\end{theorem}
+
+
+\begin{proof}
+Comprehension is by restriction/renormalization on a measurable subset. Substitution is the pullback square of $F$ and $p$, hence Beck--Chevalley (Theorem~\ref{thm:BC}) gives the $\Sigma/\Pi$ stability. 
+\end{proof}
+
+
+\begin{remark}[Smooth variant]
+Replacing $\min/\max,\ \sup/\inf$ by temperature-$\tau$ softmin/softmax operations yields $\varepsilon(\tau)$-approximate adjunctions; exact equalities are recovered as $\tau\to0$.
+\end{remark}

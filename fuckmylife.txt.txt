@@ -1,0 +1,23 @@
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+ollama 0.4.7 requires pydantic<3.0.0,>=2.9.0, but you have pydantic 2.8.2 which is incompatible.
+
+
+
+PS C:\Users\Nick\Desktop\Deepseek\text-generation-webui> python server.py --model deepseek-ai/deepseek-coder-6.7b-instruct
+13:57:34-406470 INFO     Starting Text generation web UI
+13:57:34-422470 INFO     Loading "deepseek-ai/deepseek-coder-6.7b-instruct"
+13:57:34-424470 ERROR    The path to the model does not exist. Exiting.
+╭──────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ C:\Users\Nick\Desktop\Deepseek\text-generation-webui\server.py:256 in <module>                                                                                                    │
+│                                                                                                                                                                                   │
+│   255         # Load the model                                                                                                                                                    │
+│ ❱ 256         shared.model, shared.tokenizer = load_model(model_name)                                                                                                             │
+│   257         if shared.args.lora:                                                                                                                                                │
+│                                                                                                                                                                                   │
+│ C:\Users\Nick\Desktop\Deepseek\text-generation-webui\modules\models.py:86 in load_model                                                                                           │
+│                                                                                                                                                                                   │
+│    85                 logger.error('The path to the model does not exist. Exiting.')                                                                                              │
+│ ❱  86                 raise ValueError                                                                                                                                            │
+│    87                                                                                                                                                                             │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+ValueError

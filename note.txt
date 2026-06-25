@@ -1,0 +1,5 @@
+With Halcyon. I had a bit of a jailbreak plan.
+I code a website. leave it vulnerable to a file upload attack to a file with some headers, a sql injection, or some other methodology.
+Make sure it gets indexed, so it's accessible. Then use deep research to get you somewhere else.
+
+I don't quite feel like doing this right now. but i wanted to introduce possibility if it existed.
